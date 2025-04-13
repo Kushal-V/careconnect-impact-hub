@@ -10,6 +10,13 @@ import RequestPage from "./pages/RequestPage";
 import JoinDonorPage from "./pages/JoinDonorPage";
 import JoinNGOPage from "./pages/JoinNGOPage";
 import NotFound from "./pages/NotFound";
+import HowItWorksPage from "./pages/HowItWorksPage";
+import AboutPage from "./pages/AboutPage";
+import FindMatchDashboard from "./pages/FindMatchDashboard";
+import DonateItemsDashboard from "./pages/DonateItemsDashboard";
+import CoordinatePickupDashboard from "./pages/CoordinatePickupDashboard";
+import TrackImpactDashboard from "./pages/TrackImpactDashboard";
+import DonorsAndChatPage from "./pages/DonorsAndChatPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +32,13 @@ const App = () => (
           <Route path="/request" element={<RequestPage />} />
           <Route path="/join-donor" element={<JoinDonorPage />} />
           <Route path="/join-ngo" element={<JoinNGOPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/find-match" element={<FindMatchDashboard />} />
+          <Route path="/donate-items" element={<DonateItemsDashboard />} />
+          <Route path="/coordinate-pickup" element={<CoordinatePickupDashboard />} />
+          <Route path="/track-impact" element={<TrackImpactDashboard />} />
+          <Route path="/community" element={<DonorsAndChatPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

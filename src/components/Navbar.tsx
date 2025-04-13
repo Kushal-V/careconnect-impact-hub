@@ -1,6 +1,6 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Heart, LogIn, Menu } from "lucide-react";
 import {
@@ -9,9 +9,32 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real app, this would connect to a backend for authentication
+    toast.success("Sign in successful!");
+    // Simulate a successful login
+    navigate("/");
+  };
 
   return (
     <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
@@ -32,12 +55,62 @@ const Navbar = () => {
           <Link to="/about" className="text-care-dark hover:text-care-teal transition-colors">
             About
           </Link>
-          <Button variant="outline" className="border-care-teal text-care-teal hover:bg-care-light-teal">
-            <LogIn className="mr-2 h-4 w-4" /> Sign In
-          </Button>
-          <Button className="bg-care-teal hover:bg-care-dark-teal text-white">
-            Join Now
-          </Button>
+          <Link to="/community" className="text-care-dark hover:text-care-teal transition-colors">
+            Community
+          </Link>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="border-care-teal text-care-teal hover:bg-care-light-teal">
+                <LogIn className="mr-2 h-4 w-4" /> Sign In
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Sign In to CareConnect</DialogTitle>
+                <DialogDescription>
+                  Enter your credentials to access your donation dashboard.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleSignIn} className="space-y-4 pt-2">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required 
+                  />
+                </div>
+                <div className="text-sm">
+                  <Link to="/forgot-password" className="text-care-teal hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
+                <DialogFooter>
+                  <Button type="submit" className="bg-care-teal hover:bg-care-dark-teal w-full">
+                    Sign In
+                  </Button>
+                </DialogFooter>
+                <div className="text-center text-sm text-gray-600 pt-2">
+                  Don't have an account? 
+                  <Link to="/join-donor" className="text-care-teal hover:underline ml-1">
+                    Sign Up
+                  </Link>
+                </div>
+              </form>
+            </DialogContent>
+          </Dialog>
         </div>
 
         {/* Mobile Navigation */}
@@ -59,10 +132,10 @@ const Navbar = () => {
                 <Link to="/about">About</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/signin">Sign In</Link>
+                <Link to="/community">Community</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/join" className="font-medium text-care-teal">Join Now</Link>
+                <Link to="/signin">Sign In</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

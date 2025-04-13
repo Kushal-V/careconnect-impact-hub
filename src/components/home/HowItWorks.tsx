@@ -10,25 +10,25 @@ const HowItWorks = () => {
       icon: <Search className="h-10 w-10 text-care-teal" />,
       title: "Find & Match",
       description: "Our AI matches your donations with the most urgent needs in your community or chosen area.",
-      link: "/donations"
+      link: "/find-match"
     },
     {
       icon: <Gift className="h-10 w-10 text-care-teal" />,
       title: "Donate Items",
       description: "Contribute food, clothes, essentials, or other items you wish to donate to those in need.",
-      link: "/donations"
+      link: "/donate-items"
     },
     {
       icon: <Truck className="h-10 w-10 text-care-teal" />,
       title: "Coordinate Pickup",
       description: "NGOs and volunteers coordinate with you for efficient pickup and delivery of donations.",
-      link: null
+      link: "/coordinate-pickup"
     },
     {
       icon: <CircleCheck className="h-10 w-10 text-care-teal" />,
       title: "Track Impact",
       description: "See the real impact of your donation with transparent tracking and impact measurement.",
-      link: null
+      link: "/track-impact"
     },
   ];
 
