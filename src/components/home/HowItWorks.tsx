@@ -1,6 +1,6 @@
 
 import React from "react";
-import { CircleCheck, Gift, Search, Truck } from "lucide-react";
+import { CircleCheck, Gift, Search, Truck, ArrowRight } from "lucide-react";
 
 const HowItWorks = () => {
   const steps = [
