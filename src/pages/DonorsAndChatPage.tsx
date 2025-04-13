@@ -13,6 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Calendar } from "@/components/ui/calendar"; // Import the Calendar component
+import { Label } from "@/components/ui/label"; // Import the Label component
 
 const DonorsAndChatPage = () => {
   const [messageText, setMessageText] = useState("");
