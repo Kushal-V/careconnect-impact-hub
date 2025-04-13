@@ -1,6 +1,8 @@
 
 import React from "react";
 import { CircleCheck, Gift, Search, Truck, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
   const steps = [
@@ -8,21 +10,25 @@ const HowItWorks = () => {
       icon: <Search className="h-10 w-10 text-care-teal" />,
       title: "Find & Match",
       description: "Our AI matches your donations with the most urgent needs in your community or chosen area.",
+      link: "/donations"
     },
     {
       icon: <Gift className="h-10 w-10 text-care-teal" />,
       title: "Donate Items",
       description: "Contribute food, clothes, essentials, or other items you wish to donate to those in need.",
+      link: "/donations"
     },
     {
       icon: <Truck className="h-10 w-10 text-care-teal" />,
       title: "Coordinate Pickup",
       description: "NGOs and volunteers coordinate with you for efficient pickup and delivery of donations.",
+      link: null
     },
     {
       icon: <CircleCheck className="h-10 w-10 text-care-teal" />,
       title: "Track Impact",
       description: "See the real impact of your donation with transparent tracking and impact measurement.",
+      link: null
     },
   ];
 
@@ -43,7 +49,18 @@ const HowItWorks = () => {
                 {step.icon}
               </div>
               <h3 className="text-xl font-semibold text-care-dark text-center mb-2">{step.title}</h3>
-              <p className="text-gray-600 text-center">{step.description}</p>
+              <p className="text-gray-600 text-center mb-4">{step.description}</p>
+              
+              {step.link && (
+                <div className="text-center">
+                  <Button asChild variant="outline" className="mt-2 border-care-teal text-care-teal hover:bg-care-light-teal">
+                    <Link to={step.link}>
+                      {step.title === "Find & Match" ? "Browse Needs" : step.title}
+                    </Link>
+                  </Button>
+                </div>
+              )}
+              
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
                   <ArrowRight className="h-6 w-6 text-gray-400" />
