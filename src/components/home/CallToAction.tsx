@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, GanttChart, ShieldCheck, Timer } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   return (
@@ -42,12 +43,14 @@ const CallToAction = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-care-orange hover:bg-opacity-90 text-white font-medium px-6 py-3 rounded-md text-lg flex items-center">
-                Join as Donor
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button asChild className="bg-care-orange hover:bg-opacity-90 text-white font-medium px-6 py-3 rounded-md text-lg flex items-center">
+                <Link to="/join-donor">
+                  Join as Donor
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
-              <Button variant="outline" className="border-care-teal text-care-teal hover:bg-care-dark-teal hover:text-white font-medium px-6 py-3 rounded-md text-lg">
-                Join as NGO/Volunteer
+              <Button asChild variant="outline" className="border-care-teal text-care-teal hover:bg-care-dark-teal hover:text-white font-medium px-6 py-3 rounded-md text-lg">
+                <Link to="/join-ngo">Join as NGO/Volunteer</Link>
               </Button>
             </div>
           </div>

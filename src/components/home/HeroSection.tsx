@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -19,11 +20,11 @@ const HeroSection = () => {
             ensuring your generosity creates the maximum possible impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="bg-care-orange hover:bg-opacity-90 text-white font-medium px-6 py-3 rounded-md text-lg">
-              Donate Now
+            <Button asChild className="bg-care-orange hover:bg-opacity-90 text-white font-medium px-6 py-3 rounded-md text-lg">
+              <Link to="/donations">Donate Now</Link>
             </Button>
-            <Button variant="outline" className="border-care-teal text-care-teal hover:bg-care-light-teal font-medium px-6 py-3 rounded-md text-lg">
-              Request Help
+            <Button asChild variant="outline" className="border-care-teal text-care-teal hover:bg-care-light-teal font-medium px-6 py-3 rounded-md text-lg">
+              <Link to="/request">Request Help</Link>
             </Button>
           </div>
           <div className="mt-6 flex items-center gap-8">

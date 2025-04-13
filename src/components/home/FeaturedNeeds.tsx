@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertCircle, Clock, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FeaturedNeeds = () => {
   const featuredNeeds = [
@@ -74,8 +75,8 @@ const FeaturedNeeds = () => {
             <h2 className="text-3xl font-bold text-care-dark mb-2">Featured Urgent Needs</h2>
             <p className="text-lg text-gray-600">AI-prioritized requests that need immediate attention</p>
           </div>
-          <Button className="mt-4 md:mt-0 bg-care-teal hover:bg-care-dark-teal text-white">
-            View All Needs
+          <Button asChild className="mt-4 md:mt-0 bg-care-teal hover:bg-care-dark-teal text-white">
+            <Link to="/donations">View All Needs</Link>
           </Button>
         </div>
 
@@ -115,8 +116,8 @@ const FeaturedNeeds = () => {
                 </p>
               </CardContent>
               <CardFooter>
-                <Button className="w-full bg-care-teal hover:bg-care-dark-teal text-white">
-                  Donate Now
+                <Button asChild className="w-full bg-care-teal hover:bg-care-dark-teal text-white">
+                  <Link to={`/donations/${need.id}`}>Donate Now</Link>
                 </Button>
               </CardFooter>
             </Card>
